@@ -1,0 +1,17 @@
+{
+  "name": "lil-embed-plugin",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "main": "src/index.js",
+  "devDependencies": {
+    "@svgr/webpack": "^4.3.3",
+    "@wordpress/scripts": "^9.0.0",
+    "react-iframe": "^1.8.0",
+    "url-loader": "^1.1.2"
+  },
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "packages-update": "wp-scripts packages-update"
+  }
+}

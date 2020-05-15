@@ -1,6 +1,5 @@
 # LinkedIn Learning Embed Block for WordPress
 
-[![License: GPL](https://img.shields.io/github/license/mor10/lil-embed)](https://www.gnu.org/licenses/gpl-3.0.html)
 ![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
 Unofficial embed block for WordPress to simplify embedding of LinkedIn Learning videos.

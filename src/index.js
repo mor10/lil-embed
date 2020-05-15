@@ -147,21 +147,12 @@ registerBlockType("lilembed/embed", {
         <PanelBody title={__("LinkedIn Learning Video", "lilembed")}>
           <div className="components-base-control">
             <div className="components-base-control__field">
-              <TextareaControl
-                label={__("Embed code", "lilembed")}
-                value={rawEmbedCode}
-                onChange={onChangeRawEmbedCode}
-              />
-            </div>
-            <div className="components-base-control__field">
               <label className="components-base-control__label">
-                {__("Show links", "lilembed")}
+                {__("Movie, course, and instructor links", "lilembed")}
               </label>
               <ToggleControl
-                label="Fixed Background"
-                help={
-                  showLinks ? "Has fixed background." : "No fixed background."
-                }
+                label="Toggle links"
+                help={showLinks ? "Links on." : "Links off."}
                 checked={showLinks}
                 onChange={(value) => {
                   setAttributes({ showLinks: value });
@@ -177,6 +168,9 @@ registerBlockType("lilembed/embed", {
           className={className}
           showLinks={showLinks}
         />
+        {embedData !== undefined && (
+          <div className="block-library-embed__interactive-overlay interactive-overlay"></div>
+        )}
         {embedData === undefined && <EmbedForm />}
       </div>,
     ];

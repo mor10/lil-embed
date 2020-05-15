@@ -1,28 +1,34 @@
-# WordPress Content Blocks: Advanced
+# LinkedIn Learning Embed Block for WordPress
 
-This is the repository for the LinkedIn Learning course [WordPress Content Blocks: Advanced](https://www.linkedin.com/learning/wordpress-developing-blocks-with-gutenberg/). The full course is available from [LinkedIn Learning](https://linkedin.com/learning).
+[![License: GPL](https://img.shields.io/github/license/mor10/lil-embed)](https://www.gnu.org/licenses/gpl-3.0.html)
+![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
-## Instructions
-
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
-
-## Branches
-
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter.
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `master` branch holds the final state of the code when in the course.
+Unofficial embed block for WordPress to simplify embedding of LinkedIn Learning videos.
 
 ## Installing
 
-1. To use these exercise files, you must have the following installed:
-   - WordPress
-   - Node and NPM
-2. Clone this repository to the `/wp-content/plugins/` folder of your local WordPress installation using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. Run `npm install` in terminal to install dependencies.
-4. Run `npm run start` to start the development process.
-5. In WordPress, activate the "Podkit" plugin.
+1. Download zip archive.
+2. In WordPress admin, go to Plugins -> Add New.
+3. Click "Upload Plugin."
+4. Upload zip archive.
+5. Activate plugin
 
-## Recommended VS Code extensions
+## Usage
 
-- [ESLint](https://marketplace.visualstudio.com/itemdetails?itemName=dbaeumer.vscode-eslint)
-- [Prettier - Code formatter](https://marketplace.visualstudio.com/itemdetails?itemName=esbenp.prettier-vscode)
-- [stylelint](https://marketplace.visualstudio.com/itemdetails?itemName=shinnn.stylelint)
+The LinkedIn Learning Embed Block appears as a regular block under the "Embeds" section in the block selector.
+
+To add a new LinkedIn Learning embed block in a post or page, go to the block editor, then either:
+
+- click the + symbol, scroll to the "Embeds" section, and select "LinkedIn Learning,
+- click the + symbol and type in "LinkedIn" to reveal the block,
+- from a new paragraph block, type "/LinkedIn" to reveal the block.
+
+Once a block is added, paste the **full** embed code from the LinkedIn movie you wish to share. The block will parse the code and display the embed in the editor.
+
+You can choose whether to display the movie, course, and instructor links under the embed by toggling the option in the Block panel on the right when the block is in focus.
+
+To change the embedded movie, remove the block and add a new one.
+
+## Contributions welcome
+
+If you find a bug, have a feature request, or want to improve this plugin, add an issue or submit a pull request.

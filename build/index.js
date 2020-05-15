@@ -321,16 +321,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_iframe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-iframe */ "./node_modules/react-iframe/dist/es/iframe.js");
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./logo.svg */ "./src/logo.svg");
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./logo.svg */ "./src/logo.svg");
 
 
-var __ = wp.i18n.__;
+var _wp$i18n = wp.i18n,
+    __ = _wp$i18n.__,
+    _x = _wp$i18n._x;
 var registerBlockType = wp.blocks.registerBlockType;
-var InspectorControls = wp.editor.InspectorControls;
-var PanelBody = wp.components.PanelBody;
-
+var InspectorControls = wp.blockEditor.InspectorControls;
+var _wp$components = wp.components,
+    Button = _wp$components.Button,
+    PanelBody = _wp$components.PanelBody,
+    Placeholder = _wp$components.Placeholder;
 
 
 
@@ -362,16 +364,14 @@ var Embed = function Embed(_ref) {
       href: embedData.instURI
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("strong", null, embedData.instName, "."))));
   } else {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-      className: "lil-embed empty"
-    }, "Add embed code in the block inspector.");
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null);
   }
 };
 
 registerBlockType("lilembed/embed", {
   title: __("LinkedIn Learning", "lilembed"),
   icon: {
-    src: _logo_svg__WEBPACK_IMPORTED_MODULE_5__["ReactComponent"]
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_4__["ReactComponent"]
   },
   category: "embed",
   attributes: {
@@ -463,7 +463,15 @@ registerBlockType("lilembed/embed", {
       embedData: embedData,
       className: className,
       showLinks: showLinks
-    }))];
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Placeholder, {
+      label: __("LinkedIn Learning Embed", "lilembed"),
+      className: "lil-embed",
+      instructions: __("Paste full embed code for LinkedIn Learning video", "lilembed")
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextareaControl"], {
+      label: __("Embed code", "lilembed"),
+      value: rawEmbedCode,
+      onChange: onChangeRawEmbedCode
+    })))];
   },
   save: function save(props) {
     var _props$attributes2 = props.attributes,
@@ -519,17 +527,6 @@ var SvgLogo = function SvgLogo(props) {
 /***/ (function(module, exports) {
 
 (function() { module.exports = this["wp"]["components"]; }());
-
-/***/ }),
-
-/***/ "@wordpress/compose":
-/*!******************************************!*\
-  !*** external {"this":["wp","compose"]} ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function() { module.exports = this["wp"]["compose"]; }());
 
 /***/ }),
 

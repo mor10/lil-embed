@@ -1,10 +1,9 @@
-const { __ } = wp.i18n;
+const { __, _x } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { InspectorControls } = wp.editor;
-const { PanelBody } = wp.components;
+const { InspectorControls } = wp.blockEditor;
+const { Button, PanelBody, Placeholder } = wp.components;
 import { ToggleControl, TextareaControl } from "@wordpress/components";
 import Iframe from "react-iframe";
-import { withState } from "@wordpress/compose";
 
 import { ReactComponent as Logo } from "./logo.svg";
 
@@ -42,11 +41,7 @@ const Embed = ({ embedData, className, showLinks }) => {
       </>
     );
   } else {
-    return (
-      <div className="lil-embed empty">
-        Add embed code in the block inspector.
-      </div>
-    );
+    return <></>;
   }
 };
 
@@ -144,6 +139,20 @@ registerBlockType("lilembed/embed", {
           className={className}
           showLinks={showLinks}
         />
+        <Placeholder
+          label={__("LinkedIn Learning Embed", "lilembed")}
+          className="lil-embed"
+          instructions={__(
+            "Paste full embed code for LinkedIn Learning video",
+            "lilembed"
+          )}
+        >
+          <TextareaControl
+            label={__("Embed code", "lilembed")}
+            value={rawEmbedCode}
+            onChange={onChangeRawEmbedCode}
+          />
+        </Placeholder>
       </div>,
     ];
   },

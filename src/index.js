@@ -1,8 +1,14 @@
 const { __, _x } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.blockEditor;
-const { Button, PanelBody, Placeholder } = wp.components;
-import { ToggleControl, TextareaControl } from "@wordpress/components";
+const {
+  Button,
+  PanelBody,
+  Placeholder,
+  ToggleControl,
+  TextareaControl,
+} = wp.components;
+const { withState } = wp.compose;
 import Iframe from "react-iframe";
 
 import { ReactComponent as Logo } from "./logo.svg";
@@ -44,6 +50,8 @@ const Embed = ({ embedData, className, showLinks }) => {
     return <></>;
   }
 };
+
+// registerBlockType = this.registerBlockType.bind(this);
 
 registerBlockType("lilembed/embed", {
   title: __("LinkedIn Learning", "lilembed"),
@@ -93,16 +101,46 @@ registerBlockType("lilembed/embed", {
     };
 
     // Grab newRawEmbedCode, set the value of rawEmbedCode to newRawEmbedCode.
-    const onChangeRawEmbedCode = (newRawEmbedCode) => {
+    const onChangeRawEmbedCode = (event) => {
+      event.preventDefault();
+      let [formSubmit] = event.target.children;
+      console.log(formSubmit.value);
       let parser = new DOMParser();
-      let embedDOM = parser.parseFromString(newRawEmbedCode, "text/html");
+      let embedDOM = parser.parseFromString(formSubmit.value, "text/html");
       setEmbedData(embedDOM);
-      setAttributes({ rawEmbedCode: newRawEmbedCode });
+      setAttributes({ rawEmbedCode: formSubmit.value });
     };
 
     const onChangeShowLinks = (newShowLinks) => {
       setAttributes({ showLinks: newShowLinks });
     };
+
+    const EmbedForm = withState({
+      rawEmbedCode: "",
+    })(({ rawEmbedCode, setState }) => (
+      <Placeholder
+        label={__("LinkedIn Learning Embed", "lilembed")}
+        className="lil-embed"
+        instructions={__(
+          "Paste full embed code for LinkedIn Learning video",
+          "lilembed"
+        )}
+      >
+        <form onSubmit={onChangeRawEmbedCode}>
+          <input
+            type="text"
+            value={rawEmbedCode || ""}
+            className="components-placeholder__input"
+            aria-label={__("LinkedIn Learning Embed", "lilembed")}
+            placeholder={__("Enter embed code here…")}
+            onChange={(event) => setState({ rawEmbedCode: event.target.value })}
+          />
+          <Button isPrimary type="submit">
+            {_x("Embed", "button label")}
+          </Button>
+        </form>
+      </Placeholder>
+    ));
 
     return [
       <InspectorControls>
@@ -139,20 +177,7 @@ registerBlockType("lilembed/embed", {
           className={className}
           showLinks={showLinks}
         />
-        <Placeholder
-          label={__("LinkedIn Learning Embed", "lilembed")}
-          className="lil-embed"
-          instructions={__(
-            "Paste full embed code for LinkedIn Learning video",
-            "lilembed"
-          )}
-        >
-          <TextareaControl
-            label={__("Embed code", "lilembed")}
-            value={rawEmbedCode}
-            onChange={onChangeRawEmbedCode}
-          />
-        </Placeholder>
+        {embedData === undefined && <EmbedForm />}
       </div>,
     ];
   },

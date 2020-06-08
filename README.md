@@ -12,6 +12,9 @@ Unofficial embed block for WordPress to simplify embedding of LinkedIn Learning 
 4. Upload zip archive.
 5. Activate plugin
 
+## Video demo
+[![Using the lil-embed plugin to add a LinkedIn Learning embed block to WordPress](http://img.youtube.com/vi/xDPT-vIFMYs/0.jpg)](http://www.youtube.com/watch?v=xDPT-vIFMYs "")
+
 ## Usage
 
 The LinkedIn Learning Embed Block appears as a regular block under the "Embeds" section in the block selector.

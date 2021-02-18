@@ -1,6 +1,6 @@
 {
   "name": "lil-embed",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "GPL-3.0-or-later",
   "main": "src/index.js",
   "homepage": "https://github.com/mor10/lil-embed#readme",

@@ -17,10 +17,11 @@ const Embed = ({ embedData, className, showLinks }) => {
   if (embedData) {
     return (
       <>
-        <div className={`lil-embed ${className}`}>
+        <div className={`lil-embed-container ${className}`}>
           <Iframe
-            width="640"
-            height="360"
+            class="testframe"
+            width="1920"
+            height="1080"
             src={embedData.iframeURI}
             allowFullScreen="true"
             frameBorder="0"
@@ -120,7 +121,7 @@ registerBlockType("lilembed/embed", {
     })(({ rawEmbedCode, setState }) => (
       <Placeholder
         label={__("LinkedIn Learning Embed", "lilembed")}
-        className="lil-embed"
+        className="lil-embed-container"
         instructions={__(
           "Paste full embed code for LinkedIn Learning video",
           "lilembed"

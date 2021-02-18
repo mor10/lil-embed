@@ -1,8 +1,15 @@
 # LinkedIn Learning Embed Block for WordPress
 
-![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
+![Version 0.1.1](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
 Unofficial embed block for WordPress to simplify embedding of LinkedIn Learning videos.
+
+## Changelog
+
+### 0.1.1
+
+- Update wrapper classname to `.lil-embed-container` to avoid conflict.
+- Update all packages.
 
 ## Installing
 
@@ -13,7 +20,8 @@ Unofficial embed block for WordPress to simplify embedding of LinkedIn Learning 
 5. Activate plugin
 
 ## Video demo
-[![Using the lil-embed plugin to add a LinkedIn Learning embed block to WordPress](http://img.youtube.com/vi/xDPT-vIFMYs/0.jpg)](http://www.youtube.com/watch?v=xDPT-vIFMYs "")
+
+[![Using the lil-embed plugin to add a LinkedIn Learning embed block to WordPress](http://img.youtube.com/vi/xDPT-vIFMYs/0.jpg)](http://www.youtube.com/watch?v=xDPT-vIFMYs)
 
 ## Usage
 
@@ -34,3 +42,8 @@ To change the embedded movie, remove the block and add a new one.
 ## Contributions welcome
 
 If you find a bug, have a feature request, or want to improve this plugin, add an issue or submit a pull request.
+
+## Todo
+
+- Add PostCSS processing for CSS.
+- Place CSS files in `/build` folder on build.

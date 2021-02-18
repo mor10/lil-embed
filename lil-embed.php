@@ -4,7 +4,7 @@
  * Plugin Name: LinkedIn Learning Video Embed
  * Plugin URI: https://github.com/mor10/lil-embed
  * Description: Add LinkedIn Learning Video Embed block to Embeds.
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Morten Rand-Hendriksen
  *
  * @package lilembed

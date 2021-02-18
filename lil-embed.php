@@ -51,7 +51,7 @@ function lilembed_register_blocks() {
 		'lilembed-editor-styles',											// label
 		plugins_url( 'build/editor.css', __FILE__ ),					// CSS file
 		array( 'wp-edit-blocks' ),										// dependencies
-		filemtime( plugin_dir_path( __FILE__ ) . 'build/editor.css' )	// set version as file last modified time
+		filemtime( plugin_dir_path( dirname(__FILE__) ) . 'lil-embed/build/editor.css' )	// set version as file last modified time
 	);
 
 	// Register the front-end stylesheet.
@@ -59,7 +59,7 @@ function lilembed_register_blocks() {
 		'lilembed-front-end-styles',										// label
 		plugins_url( 'build/style.css', __FILE__ ),						// CSS file
 		array( ),														// dependencies
-		filemtime( plugin_dir_path( __FILE__ ) . 'build/style.css' )	// set version as file last modified time
+		filemtime( plugin_dir_path( dirname(__FILE__) ) . 'lil-embed/build/style.css' )	// set version as file last modified time
 	);
 
 	// Array of block created in this plugin.

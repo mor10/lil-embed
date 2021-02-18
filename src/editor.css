@@ -1,0 +1,7 @@
+.lil-embed-wrapper {
+  position: relative;
+}
+
+.interactive-overlay:active {
+  display: none;
+}
